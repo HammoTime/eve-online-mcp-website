@@ -3,7 +3,7 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const worker = "eve-online-website-prod";
+const worker = "eve-mcp-com";
 const account = process.env.CLOUDFLARE_ACCOUNT_ID;
 if (
   process.argv.length !== 2 ||

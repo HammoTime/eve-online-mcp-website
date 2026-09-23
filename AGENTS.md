@@ -10,7 +10,7 @@ Run npm run validate before committing. Run the actionlint version in CI after
 workflow changes. Preserve keyboard access, no-JavaScript content, truthful data
 limits, ordinary EVE lettering, local fonts, and the Ko-fi destination.
 
-Deployment updates versions of the existing eve-online-website-prod Worker only.
+Deployment updates versions of the existing eve-mcp-com Worker only.
 Never add route, DNS, account-wide, database, or MCP permissions to the CI token.
 Creating the Worker and attaching its custom domain are separate administrator
 setup steps. Keep credentials out of files, logs, and chat.

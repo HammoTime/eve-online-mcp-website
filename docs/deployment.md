@@ -1,19 +1,19 @@
 # Website deployment
 
-The target is the existing **eve-online-website-prod** Worker in the account that
+The target is the existing **eve-mcp-com** Worker in the account that
 owns **eve-mcp.com**. The website repository never reads or deploys the hosted
 MCP server, provisions storage, or handles EVE/OIDC credentials.
 
 ## One-time administrator setup
 
 1. In the correct Cloudflare account, create a Worker named
-   `eve-online-website-prod`. A temporary Hello World Worker is sufficient.
+   `eve-mcp-com`. A temporary Hello World Worker is sufficient.
 2. In that Worker's **Settings → Domains & Routes**, attach **eve-mcp.com** as
    its Custom Domain. Disable the `workers.dev` URL and preview URLs if they
    are enabled. Ensure the domain is active before the first site deployment.
 3. In **Manage Account → Account API Tokens**, create an account-owned token
    named `github-eve-online-mcp-website-production` with scope **Specified
-   Workers**, select only **eve-online-website-prod**, and choose **Editor**.
+   Workers**, select only **eve-mcp-com**, and choose **Editor**.
 4. Add that token as the **CLOUDFLARE_API_TOKEN** secret in this repository's
    GitHub **production** environment. Add **CLOUDFLARE_ACCOUNT_ID** as an
    environment variable containing the owning account's ID. Do not paste the

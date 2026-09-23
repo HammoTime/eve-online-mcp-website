@@ -7,7 +7,7 @@ ordinary-lettered SVG branding, setup examples, and [Ko-fi support](https://ko-f
 This repository has no MCP server dependency, Git submodule, database, OAuth
 configuration, Terraform state, or shared deployment job. It publishes static
 HTML, CSS, JavaScript, SVGs, and locally served fonts to its own Cloudflare Worker,
-`eve-online-website-prod`. Product claims are editorial content, not generated
+`eve-mcp-com`. Product claims are editorial content, not generated
 from a running server. See [content evidence](docs/content-evidence.md).
 
 ## Develop and verify
