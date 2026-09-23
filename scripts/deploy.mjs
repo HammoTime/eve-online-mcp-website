@@ -18,7 +18,7 @@ if (execFileSync("git", ["status", "--porcelain"], { encoding: "utf8" }).trim())
 
 // A Worker-specific request deliberately avoids account-wide listings and zone APIs.
 const access = await fetch(
-  `https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts/${worker}/settings`,
+  `https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts/${worker}/script-settings`,
   {
     headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}` },
     signal: AbortSignal.timeout(15000),
