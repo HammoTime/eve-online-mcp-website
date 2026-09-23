@@ -16,22 +16,6 @@ if (
 if (execFileSync("git", ["status", "--porcelain"], { encoding: "utf8" }).trim())
   throw new Error("Deploy from a clean checkout.");
 
-// A Worker-specific request deliberately avoids account-wide listings and zone APIs.
-const access = await fetch(
-  `https://api.cloudflare.com/client/v4/accounts/${account}/workers/scripts/${worker}/script-settings`,
-  {
-    headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}` },
-    signal: AbortSignal.timeout(15000),
-  },
-);
-if (!access.ok) {
-  await access.body?.cancel();
-  throw new Error(
-    `Worker access check failed (HTTP ${access.status}). Create ${worker} first and grant Editor only for that Worker.`,
-  );
-}
-await access.body?.cancel();
-
 const directory = await mkdtemp(join(tmpdir(), "eve-website-deploy-"));
 const output = join(directory, "wrangler.ndjson");
 try {

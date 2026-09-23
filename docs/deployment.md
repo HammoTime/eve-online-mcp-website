@@ -43,8 +43,8 @@ known fixed egress. Never grant Admin merely to resolve a deployment error.
 
 ## Deployment behavior
 
-`scripts/deploy.mjs` checks the exact Worker's settings endpoint, requires a clean
-checkout, uploads the static assets, reads the version ID from Wrangler's
+`scripts/deploy.mjs` requires a clean checkout, uploads the static assets using
+Wrangler, reads the version ID from Wrangler's
 structured output, and deploys that exact version at 100%. It never lists all
 Workers or zones and never calls a route or DNS API. The locked Wrangler version
 is 4.136.3. The output format is documented in
@@ -52,7 +52,7 @@ is 4.136.3. The output format is documented in
 
 There are no routes in `wrangler.jsonc` intentionally. Do not replace the version
 commands with a route-managing deployment or add broad discovery calls to the
-preflight. Keep the token in this repository only; do not reuse the hosted MCP
+deployment. Keep the token in this repository only; do not reuse the hosted MCP
 deployment token.
 
 Verify the root page, CSS, JavaScript, fonts, logo, Ko-fi link, security headers,
