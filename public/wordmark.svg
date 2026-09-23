@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1254" height="1254" viewBox="0 0 1254 1254" role="img"
+     aria-labelledby="logo-title logo-description">
+  <title id="logo-title">EVE Online MCP</title>
+  <desc id="logo-description">A white orbital gateway surrounding three connected blue nodes.
+    EVE ONLINE uses ordinary Arial Bold letterforms, outlined as vector paths.
+    MCP appears below in blue geometric lettering. Dark background.</desc>
+  <defs>
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%"
+            color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
+      <feComponentTransfer in="blur" result="faint-glow">
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge><feMergeNode in="faint-glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <path id="gate-quarter" d="M581 158 A298 298 0 0 0 332 407 L378 407 A253 253 0 0 1 581 204Z"/>
+    <g id="gate-spoke">
+      <path d="M602 119 L621 102 L621 269 L591 276 L591 227 L602 223Z"/>
+      <path d="M634 102 L653 119 L653 223 L664 227 L664 276 L634 269Z"/>
+    </g>
+  </defs>
+  <rect id="background" width="1254" height="1254" fill="#05080b"/>
+  <g id="orbital-emblem" filter="url(#soft-glow)">
+    <g id="outer-gateway" fill="#e7e9ec">
+      <use xlink:href="#gate-quarter"/>
+      <use xlink:href="#gate-quarter" transform="rotate(90 627 452)"/>
+      <use xlink:href="#gate-quarter" transform="rotate(180 627 452)"/>
+      <use xlink:href="#gate-quarter" transform="rotate(270 627 452)"/>
+      <use xlink:href="#gate-spoke"/>
+      <use xlink:href="#gate-spoke" transform="rotate(90 627 452)"/>
+      <use xlink:href="#gate-spoke" transform="rotate(180 627 452)"/>
+      <use xlink:href="#gate-spoke" transform="rotate(270 627 452)"/>
+    </g>
+    <g id="inner-orbit" fill="none" stroke="#91bbdc" stroke-width="10">
+      <path d="M472 457 A156 156 0 0 1 574 301"/>
+      <path d="M680 301 A156 156 0 0 1 782 457"/>
+      <path d="M519 560 A156 156 0 0 0 574 594"/>
+      <path d="M680 594 A156 156 0 0 0 735 560"/>
+    </g>
+    <g id="connected-nodes" fill="#91bbdc" stroke="#91bbdc">
+      <path d="M627 359 L535 503 H719Z" fill="none" stroke-width="13" stroke-linejoin="round"/>
+      <circle cx="627" cy="359" r="44" stroke="none"/>
+      <circle cx="535" cy="503" r="44" stroke="none"/>
+      <circle cx="719" cy="503" r="44" stroke="none"/>
+    </g>
+  </g>
+  <g id="eve-online-wordmark" fill="#e7e9ec" filter="url(#soft-glow)" aria-label="EVE ONLINE">
+    <!-- Plain Arial Bold outlines; no EVE-style segmented E or custom V. -->
+    <path fill-rule="evenodd" d="M282.823,949.451 L282.823,866.416 L344.392,866.416 L344.392,880.463 L299.589,880.463 L299.589,898.871 L341.276,898.871 L341.276,912.861 L299.589,912.861 L299.589,935.461 L345.978,935.461 L345.978,949.451 Z M381.378,949.451 L351.698,866.416 L369.88,866.416 L390.894,927.871 L411.228,866.416 L429.013,866.416 L399.276,949.451 Z M437.565,949.451 L437.565,866.416 L499.134,866.416 L499.134,880.463 L454.331,880.463 L454.331,898.871 L496.019,898.871 L496.019,912.861 L454.331,912.861 L454.331,935.461 L500.72,935.461 L500.72,949.451 Z M543.767,908.443 C543.767,899.985 545.032,892.886 547.562,887.147 C549.45,882.917 552.027,879.122 555.293,875.762 C558.559,872.401 562.137,869.909 566.026,868.285 C571.2,866.095 577.166,865 583.925,865 C596.159,865 605.949,868.795 613.293,876.385 C620.637,883.975 624.31,894.529 624.31,908.047 C624.31,921.452 620.666,931.94 613.378,939.511 C606.09,947.082 596.348,950.867 584.151,950.867 C571.804,950.867 561.986,947.101 554.698,939.567 C547.411,932.034 543.767,921.66 543.767,908.443 Z M561.042,907.877 C561.042,917.279 563.213,924.407 567.556,929.259 C571.898,934.111 577.411,936.537 584.095,936.537 C590.778,936.537 596.263,934.13 600.549,929.315 C604.835,924.501 606.978,917.279 606.978,907.65 C606.978,898.135 604.891,891.036 600.719,886.354 C596.546,881.671 591.005,879.33 584.095,879.33 C577.185,879.33 571.615,881.7 567.386,886.439 C563.157,891.177 561.042,898.324 561.042,907.877 Z M637.564,949.451 L637.564,866.416 L653.876,866.416 L687.86,921.867 L687.86,866.416 L703.437,866.416 L703.437,949.451 L686.614,949.451 L653.14,895.303 L653.14,949.451 Z M721.618,949.451 L721.618,867.096 L738.384,867.096 L738.384,935.461 L780.071,935.461 L780.071,949.451 Z M791.513,949.451 L791.513,866.416 L808.278,866.416 L808.278,949.451 Z M824.421,949.451 L824.421,866.416 L840.733,866.416 L874.718,921.867 L874.718,866.416 L890.294,866.416 L890.294,949.451 L873.472,949.451 L839.997,895.303 L839.997,949.451 Z M908.023,949.451 L908.023,866.416 L969.591,866.416 L969.591,880.463 L924.788,880.463 L924.788,898.871 L966.476,898.871 L966.476,912.861 L924.788,912.861 L924.788,935.461 L971.177,935.461 L971.177,949.451 Z"/>
+  </g>
+  <g id="mcp-wordmark" fill="#91bbdc" filter="url(#soft-glow)" aria-label="MCP">
+    <path id="letter-m" d="M367 984H402L446 1021L490 984H525V1067H500V1016L446 1057L392 1016V1067H367Z"/>
+    <path id="letter-c" d="M605 984H698V1003H605Q596 1003 596 1012V1039Q596 1048 605 1048H698V1067H605Q573 1067 573 1039V1012Q573 984 605 984Z"/>
+    <path id="letter-p" fill-rule="evenodd" d="M746 984H858Q893 984 893 1013Q893 1042 858 1042H770V1067H746ZM770 1003V1023H856Q870 1023 870 1013Q870 1003 856 1003Z"/>
+    <path d="M193 1024H334M920 1024H1061" fill="none" stroke="#91bbdc" stroke-width="4"/>
+  </g>
+</svg>

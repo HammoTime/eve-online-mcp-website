@@ -1,0 +1,11 @@
+{
+  "name": "EVE Online MCP website",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "target": "development"
+  },
+  "remoteUser": "node",
+  "forwardPorts": [8877],
+  "postCreateCommand": "npm ci"
+}

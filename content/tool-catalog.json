@@ -1,0 +1,23 @@
+{
+  "reviewedAt": "2026-09-23",
+  "sourceRevision": "25a38c5b1f1477b3a8e76f228d07ab3bb7e5eb0c",
+  "source": "https://github.com/HammoTime/eve-online-mcp-lib",
+  "tools": [
+    "get_character_context",
+    "search_zkillmails",
+    "get_zkillmail",
+    "resolve_skill_plan_targets",
+    "get_skill_dependencies",
+    "generate_skill_plan",
+    "get_market_snapshot",
+    "search_esi_operations",
+    "get_esi_operation",
+    "call_esi",
+    "list_eve_characters",
+    "select_eve_character",
+    "authorize_eve_character",
+    "resolve_eve_entities",
+    "plan_eve_route",
+    "render_eve_map"
+  ]
+}

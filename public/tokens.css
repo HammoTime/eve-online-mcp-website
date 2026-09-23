@@ -1,0 +1,17 @@
+:root {
+  color-scheme: dark;
+  --bg: #070b10;
+  --panel: #0b121b;
+  --panel-raised: #142130;
+  --text: #e7edf5;
+  --body: #a8b6c6;
+  --muted: #8b9bad;
+  --subtle: #8294a8;
+  --accent: #91bbdc;
+  --accent-hover: #c0ddf3;
+  --cyan: #91bbdc;
+  --line: #1a2634;
+  --border: #243345;
+  --sans: Archivo, Helvetica, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", Consolas, monospace;
+}

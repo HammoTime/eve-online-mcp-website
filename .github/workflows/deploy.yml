@@ -1,0 +1,55 @@
+name: Deploy website
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  deployments: write
+concurrency:
+  group: website-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (vars.PRODUCTION_ENABLED == 'true' && github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://eve-mcp.com
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
+      - name: Build development container
+        run: docker build --target development -f .devcontainer/Dockerfile -t eve-website-dev .
+      - name: Validate selected revision
+        run: >-
+          docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp
+          -e WRANGLER_SEND_METRICS=false -v "$PWD:/workspace" -w /workspace eve-website-dev
+          sh -lc 'npm ci && npm run validate'
+      - name: Reject superseded main revision
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SELECTED_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
+          if [ "$SELECTED_SHA" != "$main_sha" ]; then
+            echo "Selected revision is no longer main; refusing to publish." >&2
+            exit 1
+          fi
+      - name: Publish website version
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: >-
+          docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp
+          -e WRANGLER_SEND_METRICS=false -e CLOUDFLARE_ACCOUNT_ID -e CLOUDFLARE_API_TOKEN
+          -v "$PWD:/workspace" -w /workspace eve-website-dev npm run deploy

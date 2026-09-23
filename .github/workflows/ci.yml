@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build development container
+        run: docker build --target development -f .devcontainer/Dockerfile -t eve-website-dev .
+      - name: Validate workflows
+        run: docker run --rm -v "$PWD:/workspace:ro" -w /workspace rhysd/actionlint:1.7.12
+      - name: Validate website
+        run: >-
+          docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp
+          -e WRANGLER_SEND_METRICS=false -v "$PWD:/workspace" -w /workspace eve-website-dev
+          sh -lc 'npm ci && npm run validate'
